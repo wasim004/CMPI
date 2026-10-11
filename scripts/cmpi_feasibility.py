@@ -20,21 +20,21 @@ Usage
 -----
 # With AMDD checkpoint (recommended):
 python ccmpm_feasibility.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --checkpoint       AMDD/checkpoints/best_model.pt \
     --output_dir       results/feasibility
 
 # Without checkpoint (random encoder weights — baseline only):
 python ccmpm_feasibility.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --output_dir       results/feasibility
 
 # Fast rerun (skip embedding extraction if already cached):
 python ccmpm_feasibility.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --checkpoint       AMDD/checkpoints/best_model.pt \
     --output_dir       results/feasibility \
     --skip_embedding_extraction
@@ -59,7 +59,7 @@ from sklearn.metrics import roc_auc_score, roc_curve
 from scipy.stats import mannwhitneyu
 
 # ── Resolve AMDD source root ──────────────────────────────────────────────
-AMDD_ROOT     = Path(__file__).resolve().parent.parent / "AMDD"
+AMDD_ROOT     = Path(__file__).resolve().parent.parent
 CMPI_ROOT    = Path(__file__).resolve().parent.parent
 
 # Add AMDD root so `from models.encoders import ...` resolves correctly.
@@ -76,19 +76,19 @@ for _p in [
 
 # Import AMDD components.
 # Priority order reflects your confirmed folder layout:
-#   AMDD/models/encoders.py   → VisualEncoder, AudioEncoder
+#   models/encoders.py   → VisualEncoder, AudioEncoder
 #   AMDD/training/dataset.py  → DeepfakeDataset   (try here first)
 #   AMDD/dataset.py           → DeepfakeDataset   (fallback)
 try:
-    from encoders import VisualEncoder, AudioEncoder   # AMDD/models/ on path
-    print("✓ Imported VisualEncoder, AudioEncoder from AMDD/models/encoders.py")
+    from encoders import VisualEncoder, AudioEncoder   # models/ on path
+    print("✓ Imported VisualEncoder, AudioEncoder from models/encoders.py")
 except ModuleNotFoundError:
     try:
         from models.encoders import VisualEncoder, AudioEncoder
         print("✓ Imported VisualEncoder, AudioEncoder via models.encoders")
     except ModuleNotFoundError as e:
         print(f"✗ Could not import encoder modules: {e}")
-        print("  Expected: AMDD/models/encoders.py")
+        print("  Expected: models/encoders.py")
         sys.exit(1)
 
 try:
@@ -101,7 +101,7 @@ except ModuleNotFoundError:
         print("✓ Imported DeepfakeDataset from AMDD/dataset.py")
     except ModuleNotFoundError as e:
         print(f"✗ Could not import DeepfakeDataset: {e}")
-        print("  Expected: AMDD/data/dataset.py")
+        print("  Expected: data/dataset.py")
         print("        or: AMDD/dataset.py")
         sys.exit(1)
 
@@ -499,10 +499,10 @@ def parse_args():
     # Paths
     p.add_argument('--metadata_csv', required=True,
                    help='Path to AMDD metadata CSV '
-                        '(e.g. <path>/AMDD/data/metadata.csv)')
+                        '(e.g. <path>/data/metadata.csv)')
     p.add_argument('--preprocessed_dir', required=True,
                    help='Path to AMDD preprocessed data directory '
-                        '(e.g. <path>/AMDD/data/preprocessed)')
+                        '(e.g. <path>/data/preprocessed)')
     p.add_argument('--checkpoint', default=None,
                    help='Path to AMDD model checkpoint '
                         '(e.g. <path>/AMDD/checkpoints/best_model.pt)')

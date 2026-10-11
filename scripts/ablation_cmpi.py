@@ -16,8 +16,8 @@ Variants
 
 Run all variants sequentially (recommended — ~6 hours total):
   python ablation_ccmpm.py --output_dir results/ablation \
-      --metadata_csv AMDD/data/metadata.csv \
-      --preprocessed_dir AMDD/data/preprocessed \
+      --metadata_csv data/metadata.csv \
+      --preprocessed_dir data/preprocessed \
       --amdd_checkpoint AMDD/checkpoints/full_model_best.pth
 
 Run a single variant:
@@ -42,7 +42,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # ── AMDD imports ──────────────────────────────────────────────────────────
-AMDD_ROOT = Path(__file__).resolve().parent.parent / "AMDD"
+AMDD_ROOT = Path(__file__).resolve().parent.parent
 for _p in [AMDD_ROOT, AMDD_ROOT / "models", AMDD_ROOT / "data"]:
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))

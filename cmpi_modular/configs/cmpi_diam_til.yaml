@@ -1,0 +1,38 @@
+# CMPI + DIAM + TIL: settings used for the paper's FakeAVCeleb results
+seed: 42
+output_dir: runs/cmpi_diam_til
+
+data:
+  metadata_csv: data/metadata.csv          # FakeAVCeleb metadata (uid, split, success, label, generator_id)
+  preprocessed_dir: data/preprocessed      # frames/<uid>.npy and audio/<uid>.npy
+  num_workers: 4
+
+model:
+  embed_dim: 512
+  hidden_dim: 1024          # cross-modal predictor MLP width
+  dropout: 0.1
+  num_heads: 8              # temporal self-attention heads in the visual encoder
+  til_hidden: 32
+  pretrained_backbones: true
+  amdd_checkpoint: null     # optional encoder warm-start; null = ImageNet init
+
+loss:
+  lambda_pred: 0.1          # weight of the real-only predictive loss
+  focal_alpha: 0.75
+  focal_gamma: 2.0
+
+train:
+  epochs: 50
+  batch_size: 8
+  lr_encoder: 1.0e-4
+  lr_head: 1.0e-3           # predictors, TIL scorer and detection head
+  weight_decay: 1.0e-4
+  warmup_epochs: 5
+  grad_clip: 1.0
+  amp: true
+  log_interval: 20
+
+eval:
+  crossdomain_root: data/crossdataset
+  datasets: [lavdf, dfdm, celebdf]
+  batch_size: 8

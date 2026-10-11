@@ -28,8 +28,8 @@ Usage
 -----
 python exp_coral_alignment.py \\
     --checkpoint       results/diam/best_model.pt \\
-    --metadata_csv     ../AMDD/data/metadata.csv \\
-    --preprocessed_dir ../AMDD/data/preprocessed \\
+    --metadata_csv     ../data/metadata.csv \\
+    --preprocessed_dir ../data/preprocessed \\
     --data_root        data/crossdataset \\
     --output_dir       results/further_experiments
 """
@@ -46,7 +46,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from eval_crossdataset_diam import CMPIDIAMModel, CrossDataset
 
 ROOT = Path(__file__).resolve().parent.parent
-AMDD_DATA = ROOT / "AMDD" / "data"
+AMDD_DATA = ROOT / "data"
 if str(AMDD_DATA) not in sys.path:
     sys.path.insert(0, str(AMDD_DATA))
 from dataset import DeepfakeDataset

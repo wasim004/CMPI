@@ -6,7 +6,9 @@ __pycache__/
 *.npy
 *.npz
 datasets/
-data/
+/data/preprocessed/
+/data/crossdataset/
+/data/*.csv
 results/**/*.png
 results/**/*.pdf
 .DS_Store

@@ -1,5 +1,9 @@
 # CMPI: Cross-Modal Predictive Inconsistency for Multimodal Deepfake Detection
 
+<p align="center">
+  <img src="assets/architecture.png" alt="CMPI + DIAM + TIL architecture" width="100%">
+</p>
+
 Code for **"Cross-Modal Predictive Inconsistency with Directional Asymmetry Modeling for Multimodal Deepfake Detection"**, *Intelligent Systems with Applications* (accepted 2026).
 
 CMPI trains two lightweight cross-modal predictors, audio→visual (`T_av`) and visual→audio (`T_va`), on **genuine** audio-visual pairs only. A fake clip breaks the coupling between speech and facial motion, so its prediction error is large.
@@ -8,14 +12,16 @@ CMPI trains two lightweight cross-modal predictors, audio→visual (`T_av`) and 
 - **DIAM** (Directional Inconsistency Asymmetry Modeling): a signed asymmetry `A = ε_f − ε_b`. Its sign indicates which modality was manipulated (validated in-domain only).
 - **TIL** (Temporal Inconsistency Localization): attention over per-frame prediction errors, for partially tampered clips.
 
-The detection head takes `[z_v, z_a, C_i, A, TIL]`. The visual and audio encoders come from AMDD (ResNet-50 + temporal attention, ResNet-18), and are included under `AMDD/`.
+The detection head takes `[z_v, z_a, C_i, A, TIL]`. The visual encoder is ResNet-50 with temporal attention and the audio encoder is ResNet-18; both are in `models/`.
 
 ## Repository layout
 
+The repository contains two implementations of the same method:
+
 ```
-AMDD/models/encoders.py     VisualEncoder / AudioEncoder (from the AMDD codebase)
-AMDD/data/dataset.py        FakeAVCeleb DeepfakeDataset + weighted sampler
-scripts/
+models/encoders.py          VisualEncoder (ResNet-50 + temporal attention), AudioEncoder (ResNet-18)
+data/dataset.py             FakeAVCeleb DeepfakeDataset + weighted sampler
+scripts/                    original research scripts used for the paper
   train_cmpi_diam.py        main model: CMPI + DIAM + TIL (paper results)
   eval_crossdataset_diam.py zero-shot evaluation on LAV-DF / DFDM / Celeb-DF
   preprocess_crossdataset.py  face-crop + mel-spectrogram extraction for cross-dataset benchmarks
@@ -25,7 +31,8 @@ scripts/
   eval_gradcam_mouth_stats.py GradCAM++ mouth-region attention statistics
   eval_realforensics_baseline.py, train_realforensics_finetune.py   RealForensics baseline (stage-2 reconstruction)
   sensitivity_analysis.py, extract_analysis.py, extract_frame-spectogram.py
-  generate_fig*.py          paper figures
+cmpi_modular/               modular re-implementation: one file per component, config-driven
+                            training/evaluation pipeline (see cmpi_modular/README.md)
 results/                    JSON/CSV outputs behind the numbers reported in the paper
 ```
 
@@ -49,12 +56,12 @@ The paper uses public third-party benchmarks; get each from its original source:
 FakeAVCeleb (training / in-domain test), LAV-DF, DFDM and Celeb-DF-v2 (zero-shot cross-domain tests).
 Put the cross-dataset benchmarks under `datasets/` (or edit the `*_ROOT` constants at the top of `scripts/preprocess_crossdataset.py`).
 
-FakeAVCeleb preprocessing follows the AMDD pipeline: a `metadata.csv` plus preprocessed frame/spectrogram tensors, passed in with `--metadata_csv` and `--preprocessed_dir`.
+FakeAVCeleb needs a `metadata.csv` (columns `uid, split, success, label, generator_id`) plus preprocessed arrays `frames/<uid>.npy` (uint8 `[T, H, W, 3]`) and `audio/<uid>.npy` (`[128, 128]` mel), passed in with `--metadata_csv` and `--preprocessed_dir`.
 
 ## Usage
 
 ```bash
-# 1. Train CMPI + DIAM + TIL on FakeAVCeleb (optionally warm-start encoders from an AMDD checkpoint)
+# 1. Train CMPI + DIAM + TIL on FakeAVCeleb (optionally warm-start the encoders from a pretrained checkpoint)
 python scripts/train_cmpi_diam.py \
     --metadata_csv <path>/metadata.csv \
     --preprocessed_dir <path>/preprocessed \
@@ -71,7 +78,7 @@ python scripts/eval_crossdataset_diam.py \
     --output_dir results/crossdataset_diam
 ```
 
-Run any script with `--help` to see all options.
+Run any script with `--help` to see all options. For the modular pipeline (`python train.py --config ...`), see [`cmpi_modular/README.md`](cmpi_modular/README.md).
 
 ## Main results
 

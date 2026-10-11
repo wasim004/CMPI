@@ -46,7 +46,7 @@ from sklearn.metrics import roc_auc_score
 
 import sys
 ROOT = Path(__file__).resolve().parent.parent
-for _p in [str(ROOT / "AMDD" / "models"), str(ROOT / "AMDD" / "data")]:
+for _p in [str(ROOT / "models"), str(ROOT / "data")]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 

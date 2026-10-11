@@ -26,7 +26,7 @@ the old Hydra/Lightning/CUDA-11.1 scaffolding entirely.
 
 Evaluation protocol simplification (documented explicitly for the rebuttal):
 this reuses CMPI's own already-preprocessed FakeAVCeleb test frames
-(AMDD/data/preprocessed, the same 220 test videos / 16 evenly-sampled
+(data/preprocessed, the same 220 test videos / 16 evenly-sampled
 face-cropped frames used for every other row in CMPI's comparison table),
 resized 224->112, rather than replicating RealForensics' own bespoke
 RetinaFace+FAN crop pipeline and multi-clip video-level aggregation. CSN's
@@ -42,8 +42,8 @@ Usage
 -----
 python eval_realforensics_baseline.py \\
     --checkpoint /tmp/realforensics_ff.pth \\
-    --metadata_csv "../AMDD/data/metadata.csv" \\
-    --preprocessed_dir "../AMDD/data/preprocessed" \\
+    --metadata_csv "../data/metadata.csv" \\
+    --preprocessed_dir "../data/preprocessed" \\
     --output_dir results/realforensics_baseline
 """
 

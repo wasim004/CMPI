@@ -23,8 +23,8 @@ Detection head input: [z_v, z_a, C_i_norm, A_norm, TIL_norm]  dim = 2D+3
 Usage
 -----
 python train_cmpi_diam.py \\
-    --metadata_csv     /path/to/AMDD/data/metadata.csv \\
-    --preprocessed_dir /path/to/AMDD/data/preprocessed \\
+    --metadata_csv     /path/to/data/metadata.csv \\
+    --preprocessed_dir /path/to/data/preprocessed \\
     --amdd_checkpoint  /path/to/AMDD/checkpoints/full_model_best.pth \\
     --output_dir       results/diam
 """
@@ -43,8 +43,8 @@ import matplotlib.pyplot as plt
 
 # ── Resolve encoder / dataset imports ────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
-AMDD_MODELS = ROOT / "AMDD" / "models"
-AMDD_DATA   = ROOT / "AMDD" / "data"
+AMDD_MODELS = ROOT / "models"
+AMDD_DATA   = ROOT / "data"
 
 for _p in [str(AMDD_MODELS), str(AMDD_DATA)]:
     if _p not in sys.path:

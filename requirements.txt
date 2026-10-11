@@ -9,4 +9,5 @@ matplotlib
 opencv-python
 pillow
 tqdm
+pyyaml
 face-alignment  # only for eval_gradcam_mouth_stats.py (mouth-region landmarks)

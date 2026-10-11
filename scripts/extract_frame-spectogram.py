@@ -13,8 +13,8 @@ Saves:
 Usage
 -----
 python extract_figure_samples.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --output_dir       figures/raw_samples
 """
 
@@ -31,9 +31,9 @@ from pathlib import Path
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument('--metadata_csv',
-                   default='AMDD/data/metadata.csv')
+                   default='data/metadata.csv')
     p.add_argument('--preprocessed_dir',
-                   default='AMDD/data/preprocessed')
+                   default='data/preprocessed')
     p.add_argument('--output_dir', default='figures/raw_samples')
     p.add_argument('--n_frames_to_show', type=int, default=6,
                    help='How many frames to show in the film strip (4-8)')

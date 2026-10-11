@@ -10,8 +10,8 @@ Usage
 -----
 # Run both (overnight, ~8 hours total)
 python sensitivity_analysis.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --amdd_checkpoint  AMDD/checkpoints/full_model_best.pth \
     --output_dir       results/sensitivity
 
@@ -34,7 +34,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score
 
-AMDD_ROOT = Path(__file__).resolve().parent.parent / "AMDD"
+AMDD_ROOT = Path(__file__).resolve().parent.parent
 for _p in [AMDD_ROOT, AMDD_ROOT/"models", AMDD_ROOT/"data"]:
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
@@ -441,9 +441,9 @@ def plot_frame_results(results, out_dir):
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument('--metadata_csv',
-                   default='AMDD/data/metadata.csv')
+                   default='data/metadata.csv')
     p.add_argument('--preprocessed_dir',
-                   default='AMDD/data/preprocessed')
+                   default='data/preprocessed')
     p.add_argument('--amdd_checkpoint',
                    default='AMDD/checkpoints/full_model_best.pth')
     p.add_argument('--output_dir', default='results/sensitivity')

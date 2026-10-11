@@ -54,7 +54,7 @@ import pandas as pd
 import torchvision.transforms as T
 
 ROOT = Path(__file__).resolve().parent.parent
-for _p in [str(ROOT / "AMDD" / "models"), str(ROOT / "AMDD" / "data"), str(Path(__file__).resolve().parent)]:
+for _p in [str(ROOT / "models"), str(ROOT / "data"), str(Path(__file__).resolve().parent)]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 

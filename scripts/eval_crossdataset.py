@@ -40,7 +40,7 @@ from sklearn.metrics import (roc_auc_score, roc_curve,
 from scipy.stats import mannwhitneyu
 
 # ── Resolve AMDD / CMPI paths ────────────────────────────────────────────
-AMDD_ROOT  = Path(__file__).resolve().parent.parent / "AMDD"
+AMDD_ROOT  = Path(__file__).resolve().parent.parent
 CMPI_ROOT = Path(__file__).resolve().parent.parent
 
 for _p in [AMDD_ROOT, AMDD_ROOT / "models", AMDD_ROOT / "data"]:

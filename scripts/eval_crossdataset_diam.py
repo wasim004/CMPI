@@ -33,8 +33,8 @@ from sklearn.metrics import roc_auc_score, balanced_accuracy_score
 
 # ── Imports ───────────────────────────────────────────────────────────────
 ROOT       = Path(__file__).resolve().parent.parent
-AMDD_MODELS = ROOT / "AMDD" / "models"
-AMDD_DATA   = ROOT / "AMDD" / "data"
+AMDD_MODELS = ROOT / "models"
+AMDD_DATA   = ROOT / "data"
 
 for _p in [str(AMDD_MODELS), str(AMDD_DATA)]:
     if _p not in sys.path:

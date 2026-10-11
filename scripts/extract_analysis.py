@@ -12,8 +12,8 @@ Usage
 -----
 python extract_analysis.py \
     --checkpoint       results/training_v2/best_model.pt \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --output_dir       results/analysis
 """
 
@@ -32,7 +32,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 import pandas as pd
 
-AMDD_ROOT = Path(__file__).resolve().parent.parent / "AMDD"
+AMDD_ROOT = Path(__file__).resolve().parent.parent
 for _p in [AMDD_ROOT, AMDD_ROOT/"models", AMDD_ROOT/"data"]:
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
@@ -435,9 +435,9 @@ def parse_args():
     p.add_argument('--checkpoint',
                    default='results/training_v2/best_model.pt')
     p.add_argument('--metadata_csv',
-                   default='AMDD/data/metadata.csv')
+                   default='data/metadata.csv')
     p.add_argument('--preprocessed_dir',
-                   default='AMDD/data/preprocessed')
+                   default='data/preprocessed')
     p.add_argument('--output_dir', default='results/analysis')
     return p.parse_args()
 

@@ -25,21 +25,21 @@ Loss
 Usage
 -----
 python train_ccmpm.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --output_dir       results/training
 
 # Resume from checkpoint:
 python train_ccmpm.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --output_dir       results/training \
     --resume           results/training/last_checkpoint.pt
 
 # Warm-start encoders from AMDD (recommended):
 python train_ccmpm.py \
-    --metadata_csv     AMDD/data/metadata.csv \
-    --preprocessed_dir AMDD/data/preprocessed \
+    --metadata_csv     data/metadata.csv \
+    --preprocessed_dir data/preprocessed \
     --output_dir       results/training \
     --amdd_checkpoint  AMDD/checkpoints/full_model_best.pth
 """
@@ -63,7 +63,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # ── Resolve paths ─────────────────────────────────────────────────────────
-AMDD_ROOT  = Path(__file__).resolve().parent.parent / "AMDD"
+AMDD_ROOT  = Path(__file__).resolve().parent.parent
 CMPI_ROOT = Path(__file__).resolve().parent.parent
 
 for _p in [AMDD_ROOT, AMDD_ROOT / "models", AMDD_ROOT / "data"]:
@@ -72,14 +72,14 @@ for _p in [AMDD_ROOT, AMDD_ROOT / "models", AMDD_ROOT / "data"]:
 
 try:
     from encoders import VisualEncoder, AudioEncoder
-    print("✓ VisualEncoder, AudioEncoder from AMDD/models/")
+    print("✓ VisualEncoder, AudioEncoder from models/")
 except ModuleNotFoundError:
     from models.encoders import VisualEncoder, AudioEncoder
     print("✓ VisualEncoder, AudioEncoder via models.encoders")
 
 try:
     from dataset import DeepfakeDataset, get_weighted_sampler
-    print("✓ DeepfakeDataset from AMDD/data/")
+    print("✓ DeepfakeDataset from data/")
 except ModuleNotFoundError:
     sys.path.insert(0, str(AMDD_ROOT / "training"))
     from dataset import DeepfakeDataset, get_weighted_sampler

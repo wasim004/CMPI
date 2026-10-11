@@ -30,8 +30,8 @@ Usage
 -----
 python train_realforensics_finetune.py \\
     --init_checkpoint  realforensics_ff.pth \\
-    --metadata_csv     ../AMDD/data/metadata.csv \\
-    --preprocessed_dir ../AMDD/data/preprocessed \\
+    --metadata_csv     ../data/metadata.csv \\
+    --preprocessed_dir ../data/preprocessed \\
     --output_dir       results/realforensics_finetuned
 """
 
@@ -49,7 +49,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from eval_realforensics_baseline import create_csn, MeanLinear, IMAGENET_MEAN, IMAGENET_STD
 
 ROOT = Path(__file__).resolve().parent.parent
-AMDD_DATA = ROOT / "AMDD" / "data"
+AMDD_DATA = ROOT / "data"
 if str(AMDD_DATA) not in sys.path:
     sys.path.insert(0, str(AMDD_DATA))
 from dataset import DeepfakeDataset
