@@ -29,6 +29,12 @@ scripts/
 results/                    JSON/CSV outputs behind the numbers reported in the paper
 ```
 
+<p align="center">
+  <img src="assets/graphical_abstract.png" alt="CMPI graphical abstract" width="95%">
+</p>
+
+<p align="center"><em>Real audio-visual pairs stay strongly coupled (low C<sub>i</sub>). Deepfakes break the coupling (high C<sub>i</sub>).</em></p>
+
 ## Setup
 
 ```bash
