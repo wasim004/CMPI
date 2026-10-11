@@ -1,8 +1,10 @@
 # CMPI: Cross-Modal Predictive Inconsistency for Multimodal Deepfake Detection
 
 <p align="center">
-  <img src="assets/architecture.png" alt="CMPI + DIAM + TIL architecture" width="100%">
+  <img src="assets/graphical_abstract.png" alt="CMPI graphical abstract" width="95%">
 </p>
+
+<p align="center"><em>Real audio-visual pairs stay strongly coupled (low C<sub>i</sub>). Deepfakes break the coupling (high C<sub>i</sub>).</em></p>
 
 Code for **"Cross-Modal Predictive Inconsistency with Directional Asymmetry Modeling for Multimodal Deepfake Detection"**, *Intelligent Systems with Applications* (accepted 2026).
 
@@ -35,12 +37,6 @@ cmpi_modular/               modular re-implementation: one file per component, c
                             training/evaluation pipeline (see cmpi_modular/README.md)
 results/                    JSON/CSV outputs behind the numbers reported in the paper
 ```
-
-<p align="center">
-  <img src="assets/graphical_abstract.png" alt="CMPI graphical abstract" width="95%">
-</p>
-
-<p align="center"><em>Real audio-visual pairs stay strongly coupled (low C<sub>i</sub>). Deepfakes break the coupling (high C<sub>i</sub>).</em></p>
 
 ## Setup
 
