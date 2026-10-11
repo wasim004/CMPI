@@ -1,0 +1,24 @@
+{
+  "checkpoint": "results/training_v2/best_model.pt",
+  "in_dist_auroc": 0.9982,
+  "results": [
+    {
+      "dataset": "dftimit",
+      "n_real": 10,
+      "n_fake": 10,
+      "auroc": 0.05,
+      "ci_auroc": 0.37999999999999995,
+      "bal_acc": 0.5,
+      "ci_mean_real": 8.5383939743042,
+      "ci_mean_fake": 7.839710235595703,
+      "ci_std_real": 1.9350473880767822,
+      "ci_std_fake": 2.168457508087158,
+      "separation": 0.9181715250015259,
+      "err_av_real": 4.5348100662231445,
+      "err_av_fake": 3.0008909702301025,
+      "err_va_real": 4.0035834312438965,
+      "err_va_fake": 4.83881950378418,
+      "mannwhitney_p": 0.8276478889965212
+    }
+  ]
+}

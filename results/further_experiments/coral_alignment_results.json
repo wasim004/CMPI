@@ -1,0 +1,22 @@
+{
+  "lavdf": {
+    "n_calib": 800,
+    "n_eval": 3200,
+    "baseline_auroc": 0.4615605335408492,
+    "baseline_bal_acc": 0.4511111006936469,
+    "coral_auroc": 0.46202306895371675,
+    "coral_bal_acc": 0.45166153346115556,
+    "coral_auroc_ci": 0.4399297758734653,
+    "coral_auroc_a": 0.4626487027913075
+  },
+  "dfdm": {
+    "n_calib": 52,
+    "n_eval": 208,
+    "baseline_auroc": 0.5397133610725844,
+    "baseline_bal_acc": 0.5,
+    "coral_auroc": 0.42431807674526123,
+    "coral_bal_acc": 0.45335182616736014,
+    "coral_auroc_ci": 0.45196486361534904,
+    "coral_auroc_a": 0.3838187702265372
+  }
+}

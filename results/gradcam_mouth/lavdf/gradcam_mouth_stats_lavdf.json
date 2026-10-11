@@ -1,0 +1,18 @@
+{
+  "real": {
+    "n_samples": 150,
+    "n_skipped": 0,
+    "mouth_attention_mass_mean": 0.12529820345065995,
+    "mouth_attention_mass_std": 0.03927026947334836,
+    "mouth_attention_mass_median": 0.12358428945299238,
+    "mouth_area_fraction_mean": 0.030806791206065758
+  },
+  "fake": {
+    "n_samples": 150,
+    "n_skipped": 0,
+    "mouth_attention_mass_mean": 0.11065125762523773,
+    "mouth_attention_mass_std": 0.030463525546417018,
+    "mouth_attention_mass_median": 0.11535586073296145,
+    "mouth_area_fraction_mean": 0.027771585685055278
+  }
+}

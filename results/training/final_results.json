@@ -1,0 +1,36 @@
+{
+  "best_val_auroc": 1.0,
+  "test": {
+    "loss": 0.7485559965882983,
+    "det_loss": 0.009637968684906366,
+    "pred_loss": 0.73891802664314,
+    "auroc": 0.9997241379310344,
+    "bal_acc": 0.996551724137931,
+    "ci_auroc": 0.20754022988505746,
+    "ci_mean_real": 28.890810012817383,
+    "ci_mean_fake": 20.124128341674805
+  },
+  "args": {
+    "metadata_csv": "AMDD/data/metadata.csv",
+    "preprocessed_dir": "AMDD/data/preprocessed",
+    "output_dir": "results/training",
+    "amdd_checkpoint": "AMDD/checkpoints/full_model_best.pth",
+    "resume": null,
+    "embed_dim": 512,
+    "hidden_dim": 1024,
+    "dropout": 0.1,
+    "epochs": 50,
+    "batch_size": 8,
+    "num_workers": 4,
+    "lr": 0.0001,
+    "lr_predictor": 0.001,
+    "weight_decay": 0.0001,
+    "lambda_pred": 1.0,
+    "warmup_epochs": 5,
+    "amp": true,
+    "no_amp": false,
+    "seed": 42,
+    "device": "auto",
+    "log_interval": 20
+  }
+}

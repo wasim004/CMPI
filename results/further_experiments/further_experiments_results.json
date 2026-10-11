@@ -1,0 +1,110 @@
+{
+  "lavdf": {
+    "exp2_test_time_calibration": {
+      "n_calib": 800,
+      "n_eval": 3200,
+      "baseline_stats": {
+        "ci": [
+          36.11650085449219,
+          16.04559326171875
+        ],
+        "a": [
+          19.181087493896484,
+          12.61989688873291
+        ],
+        "til": [
+          29.677736282348633,
+          12.52169132232666
+        ]
+      },
+      "recalibrated_stats": {
+        "ci": [
+          20.556838989257812,
+          14.045186996459961
+        ],
+        "a": [
+          15.541411399841309,
+          12.3296537399292
+        ],
+        "til": [
+          20.7243709564209,
+          13.028518676757812
+        ]
+      },
+      "baseline": {
+        "auroc_det": 0.4615605335408492,
+        "bal_acc": 0.4511111006936469
+      },
+      "recalibrated": {
+        "auroc_det": 0.4615624868153968,
+        "bal_acc": 0.45112750819984654
+      },
+      "auroc_ci_raw_eval": 0.45833782586479277,
+      "auroc_a_raw_eval": 0.4624088406768643
+    },
+    "exp4_modality_attribution": {
+      "n_video_only": 670,
+      "n_audio_only": 666,
+      "attribution_accuracy": 0.4977544910179641,
+      "attribution_auroc": 0.48704226614674373,
+      "a_mean_video_fake": 14.349656105041504,
+      "a_mean_audio_fake": 14.89695930480957,
+      "a_std_video_fake": 11.771575927734375,
+      "a_std_audio_fake": 12.03140926361084
+    }
+  },
+  "dfdm": {
+    "exp2_test_time_calibration": {
+      "n_calib": 52,
+      "n_eval": 208,
+      "baseline_stats": {
+        "ci": [
+          36.11650085449219,
+          16.04559326171875
+        ],
+        "a": [
+          19.181087493896484,
+          12.61989688873291
+        ],
+        "til": [
+          29.677736282348633,
+          12.52169132232666
+        ]
+      },
+      "recalibrated_stats": {
+        "ci": [
+          56.432960510253906,
+          0.3210809528827667
+        ],
+        "a": [
+          25.812896728515625,
+          0.10597756505012512
+        ],
+        "til": [
+          41.13210678100586,
+          0.12081689387559891
+        ]
+      },
+      "baseline": {
+        "auroc_det": 0.5397133610725844,
+        "bal_acc": 0.5
+      },
+      "recalibrated": {
+        "auroc_det": 0.510217290799815,
+        "bal_acc": 0.5
+      },
+      "auroc_ci_raw_eval": 0.5875173370319001,
+      "auroc_a_raw_eval": 0.41682847896440134
+    },
+    "exp4_modality_attribution": {
+      "n_video_only": 130,
+      "n_audio_only": 0,
+      "attribution_accuracy": 1.0,
+      "attribution_auroc": NaN,
+      "a_mean_video_fake": 25.813941955566406,
+      "a_mean_audio_fake": NaN,
+      "a_std_video_fake": 0.08705994486808777,
+      "a_std_audio_fake": NaN
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "best_val_epoch": 5,
+  "best_val_auroc": 0.6079729152687123,
+  "test_auroc": 0.5876781609195402,
+  "test_bal_acc": 0.5411494252873563,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.4101813694092002,
+      "val_auroc": 0.5552064905752455,
+      "val_bal_acc": 0.5331238943451473
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6922544825716349,
+      "val_auroc": 0.5728207161593364,
+      "val_bal_acc": 0.5627554443969988
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.6554534578172942,
+      "val_auroc": 0.5835265052156409,
+      "val_bal_acc": 0.5786006222167999
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6432060227973228,
+      "val_auroc": 0.5813456963338011,
+      "val_bal_acc": 0.5712956749832245
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6239716356108993,
+      "val_auroc": 0.6079729152687123,
+      "val_bal_acc": 0.5948575611541511
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.6179703204225666,
+      "val_auroc": 0.5948880619776734,
+      "val_bal_acc": 0.5029128286463734
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.6145952794266047,
+      "val_auroc": 0.596672360153724,
+      "val_bal_acc": 0.5944915512718844
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.5913055195041259,
+      "val_auroc": 0.5999664490941256,
+      "val_bal_acc": 0.5855090587445861
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.5928362636160023,
+      "val_auroc": 0.6053803452693223,
+      "val_bal_acc": 0.5873696089794425
+    }
+  ],
+  "note": "RealForensics (CSN-101 backbone + cosine-linear head), initialized from the officially released FF++-trained checkpoint (realforensics_ff.pth), fine-tuned supervised (plain BCE) on FakeAVCeleb train split, matching the same \"reproduced by us using the official implementation\" convention as the FAME/Hashmi et al. rows in Table 1. Architecture reconstructed standalone since the original repo's training scaffolding requires PyTorch 1.9/CUDA 11.1, which has no kernels for this machine's GPU."
+}

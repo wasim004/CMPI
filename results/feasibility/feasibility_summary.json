@@ -1,0 +1,64 @@
+{
+  "experiment": "CMPI_feasibility",
+  "hypothesis": "Real samples have lower predictive inconsistency C_i than fake samples under frozen AMDD encoders with predictors trained on real only.",
+  "success_criterion": "AUROC(C_i, test) > 0.70",
+  "args": {
+    "metadata_csv": "AMDD/data/metadata.csv",
+    "preprocessed_dir": "AMDD/data/preprocessed",
+    "checkpoint": "AMDD/checkpoints/full_model_best.pth",
+    "output_dir": "results/feasibility",
+    "embed_dim": 512,
+    "enc_batch_size": 8,
+    "num_workers": 4,
+    "hidden_dim": 1024,
+    "pred_epochs": 50,
+    "pred_lr": 0.001,
+    "pred_batch": 64,
+    "dropout": 0.1,
+    "seed": 42,
+    "device": "auto",
+    "skip_embedding_extraction": false
+  },
+  "results": [
+    {
+      "split": "train",
+      "n_real": 670,
+      "n_fake": 674,
+      "auroc": 0.9999889277647371,
+      "mannwhitney_stat": 451575.0,
+      "mannwhitney_pval": 2.453787464263794e-221,
+      "real_ci_mean": 8.811169624328613,
+      "real_ci_std": 3.1315643787384033,
+      "fake_ci_mean": 40.65664291381836,
+      "fake_ci_std": 3.683661937713623,
+      "separation_ratio": 4.614216327667236
+    },
+    {
+      "split": "val",
+      "n_real": 75,
+      "n_fake": 145,
+      "auroc": 0.9999080459770116,
+      "mannwhitney_stat": 10874.0,
+      "mannwhitney_pval": 2.985387249066787e-34,
+      "real_ci_mean": 13.682748794555664,
+      "real_ci_std": 4.956501007080078,
+      "fake_ci_mean": 38.717620849609375,
+      "fake_ci_std": 4.312040328979492,
+      "separation_ratio": 2.82966685295105
+    },
+    {
+      "split": "test",
+      "n_real": 75,
+      "n_fake": 145,
+      "auroc": 0.9982528735632183,
+      "mannwhitney_stat": 10856.0,
+      "mannwhitney_pval": 4.878055535176994e-34,
+      "real_ci_mean": 13.846477508544922,
+      "real_ci_std": 4.705059051513672,
+      "fake_ci_mean": 39.417415618896484,
+      "fake_ci_std": 4.368315696716309,
+      "separation_ratio": 2.8467469215393066
+    }
+  ],
+  "verdict": "HYPOTHESIS VALIDATED \u2014 test AUROC=0.9983 > 0.70"
+}

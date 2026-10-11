@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+datasets/
+data/
+results/**/*.png
+results/**/*.pdf
+.DS_Store

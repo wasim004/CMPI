@@ -1,0 +1,8 @@
+{
+  "n": 220,
+  "auroc": 0.5391264367816092,
+  "bal_acc": 0.542528735632184,
+  "logit_mean": 0.8867692477323792,
+  "logit_std": 0.8269544791778876,
+  "note": "Officially released realforensics_ff.pth (trained on FaceForensics++) evaluated zero-shot on CMPI's FakeAVCeleb test set, using CMPI's own preprocessed 16-frame face crops (resized 224->112) rather than RealForensics' own crop+multi-clip-aggregation pipeline \u2014 see script docstring for full justification."
+}
