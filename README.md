@@ -90,3 +90,7 @@ Cross-domain generalisation is the main limitation. The paper's diagnostic exper
   note    = {Accepted}
 }
 ```
+
+## License
+
+Released under the [MIT License](LICENSE).
